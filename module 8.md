@@ -15,50 +15,50 @@ Algorithm:
 4.	Exit the program.
  
 Program:
-
-#include <stdio.h>
-
-int main() {
-    int n;
-
-    printf("Enter a number: ");
-    scanf("%d", &n);
-
-    switch (n) {
-        case 5:
-            printf("seventy one\n");
-            break;
-        case 6:
-            printf("seventy two\n");
-            break;
-        case 7:
-            printf("seventy three\n");
-            break;
-        case 8:
-            printf("seventy four\n");
-            break;
-        case 9:
-            printf("seventy five\n");
-            break;
-        case 10:
-            printf("seventy six\n");
-            break;
-        case 11:
-            printf("seventy seven\n");
-            break;
-        case 12:
-            printf("seventy eight\n");
-            break;
-        case 13:
-            printf("seventy nine\n");
-            break;
-        default:
-            printf("Greater than 13\n");
-            break;
-    }
-
-    return 0;
-}
+   
+    #include <stdio.h>
+    
+     int main() {
+     int n;
+ 
+     printf("Enter a number: ");
+     scanf("%d", &n);
+ 
+     switch (n) {
+         case 5:
+             printf("seventy one\n");
+             break;
+         case 6:
+             printf("seventy two\n");
+             break;
+         case 7:
+             printf("seventy three\n");
+             break;
+         case 8:
+             printf("seventy four\n");
+             break;
+         case 9:
+             printf("seventy five\n");
+             break;
+         case 10:
+             printf("seventy six\n");
+             break;
+         case 11:
+             printf("seventy seven\n");
+             break;
+         case 12:
+             printf("seventy eight\n");
+             break;
+         case 13:
+             printf("seventy nine\n");
+             break;
+         default:
+             printf("Greater than 13\n");
+             break;
+     }
+ 
+     return 0;
+ }
 
 
 
@@ -89,33 +89,33 @@ Algorithm:
  
 Program:
 
-#include <stdio.h>
-#include <string.h>
-
-int main() {
-    char a[50];
-    int count[4] = {0};  
-    int i, len;
-
-    printf("Enter a string of digits: ");
-    scanf("%s", a);
-
-    len = strlen(a);
-
-    for (i = 0; i < len; i++) {
-        if (a[i] >= '0' && a[i] <= '3') {
-            count[a[i] - '0']++;
+    #include <stdio.h>
+    #include <string.h>
+    
+    int main() {
+        char a[50];
+        int count[4] = {0};  
+        int i, len;
+    
+        printf("Enter a string of digits: ");
+        scanf("%s", a);
+    
+        len = strlen(a);
+    
+        for (i = 0; i < len; i++) {
+            if (a[i] >= '0' && a[i] <= '3') {
+                count[a[i] - '0']++;
+            }
         }
+    
+        for (i = 0; i <= 3; i++) {
+            printf("%d ", count[i]);
+        }
+    
+        printf("\n");
+    
+        return 0;
     }
-
-    for (i = 0; i <= 3; i++) {
-        printf("%d ", count[i]);
-    }
-
-    printf("\n");
-
-    return 0;
-}
 
 
 
@@ -153,64 +153,64 @@ Free the memory allocated for each string in s Free the memory allocated for s
  
 Program:
 
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-void swap(char **a, char **b) {
-    char *temp = *a;
-    *a = *b;
-    *b = temp;
-}
-int next_permutation(char *arr[], int n) {
-    int i = n - 2;
-    while (i >= 0 && strcmp(arr[i], arr[i + 1]) >= 0) {
-        i--;
+    #include <stdio.h>
+    #include <string.h>
+    #include <stdlib.h>
+    void swap(char **a, char **b) {
+        char *temp = *a;
+        *a = *b;
+        *b = temp;
     }
-    if (i < 0) {
-        return 0; 
+    int next_permutation(char *arr[], int n) {
+        int i = n - 2;
+        while (i >= 0 && strcmp(arr[i], arr[i + 1]) >= 0) {
+            i--;
+        }
+        if (i < 0) {
+            return 0; 
+        }
+        int j = n - 1;
+        while (strcmp(arr[i], arr[j]) >= 0) {
+            j--;
+        }
+    
+        swap(&arr[i], &arr[j]);
+    
+        int left = i + 1, right = n - 1;
+        while (left < right) {
+            swap(&arr[left], &arr[right]);
+            left++;
+            right--;
+        }
+    
+        return 1; 
     }
-    int j = n - 1;
-    while (strcmp(arr[i], arr[j]) >= 0) {
-        j--;
-    }
-
-    swap(&arr[i], &arr[j]);
-
-    int left = i + 1, right = n - 1;
-    while (left < right) {
-        swap(&arr[left], &arr[right]);
-        left++;
-        right--;
-    }
-
-    return 1; 
-}
-
-int main() {
-    int n;
-    scanf("%d", &n);
-
-    char *arr[n];
-    for (int i = 0; i < n; i++) {
-        arr[i] = (char *)malloc(101 * sizeof(char)); 
-        scanf("%s", arr[i]); 
-    }
-    for (int i = 0; i < n; i++) {
-        printf("%s ", arr[i]);
-    }
-    printf("\n");
-    while (next_permutation(arr, n)) {
+    
+    int main() {
+        int n;
+        scanf("%d", &n);
+    
+        char *arr[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = (char *)malloc(101 * sizeof(char)); 
+            scanf("%s", arr[i]); 
+        }
         for (int i = 0; i < n; i++) {
             printf("%s ", arr[i]);
         }
         printf("\n");
+        while (next_permutation(arr, n)) {
+            for (int i = 0; i < n; i++) {
+                printf("%s ", arr[i]);
+            }
+            printf("\n");
+        }
+        for (int i = 0; i < n; i++) {
+            free(arr[i]);
+        }
+    
+        return 0;
     }
-    for (int i = 0; i < n; i++) {
-        free(arr[i]);
-    }
-
-    return 0;
-}
 
 
 
@@ -243,26 +243,26 @@ Algorithm:
 7.	End
  
 Program:
-#include <stdio.h>
-void printPattern() {
-    int n;
-    scanf("%d", &n);
-    
-    for (int i = 0; i < (2 * n - 1); i++) {
-        for (int j = 0; j < (2 * n - 1); j++) {
-            int min = i < j ? i : j;
-            min = min < (2 * n - 2 - i) ? min : (2 * n - 2 - i);
-            min = min < (2 * n - 2 - j) ? min : (2 * n - 2 - j);
-            printf("%d ", n - min);
+    #include <stdio.h>
+    void printPattern() {
+        int n;
+        scanf("%d", &n);
+        
+        for (int i = 0; i < (2 * n - 1); i++) {
+            for (int j = 0; j < (2 * n - 1); j++) {
+                int min = i < j ? i : j;
+                min = min < (2 * n - 2 - i) ? min : (2 * n - 2 - i);
+                min = min < (2 * n - 2 - j) ? min : (2 * n - 2 - j);
+                printf("%d ", n - min);
+            }
+            printf("\n");
         }
-        printf("\n");
     }
-}
-
-int main() {
-    printPattern(); 
-    return 0;
-}
+    
+    int main() {
+        printPattern(); 
+        return 0;
+    }
 
 
 
@@ -302,20 +302,20 @@ o	Call the square() function and display the result.
 
 Program:
 
-#include <stdio.h>
-
-int square() {
-    int num;
-    printf("Enter a number: ");
-    scanf("%d", &num);
-    return num * num;
-}
-
-int main() {
-    int result = square();
-    printf("Square of the number is: %d\n", result);
-    return 0;
-}
+    #include <stdio.h>
+    
+    int square() {
+        int num;
+        printf("Enter a number: ");
+        scanf("%d", &num);
+        return num * num;
+    }
+    
+    int main() {
+        int result = square();
+        printf("Square of the number is: %d\n", result);
+        return 0;
+    }
 
 
 
