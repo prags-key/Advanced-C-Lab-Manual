@@ -10,11 +10,30 @@ Algorithm:
  
 Program:
 
-//type your code here
+
+    struct Node {
+        float data;
+        struct Node* next;
+    };
+    
+    struct Node* head = NULL;
+    void search(char value) {
+        struct Node* current = head;
+        int position = 1;
+        while (current != NULL) {
+            if (current->data == value) {
+                printf("item %c found at location %d\n", value, position);
+                return;
+            }
+            current = current->next;
+            position++;
+        }
+        printf("Item not found\n");
+    }
 
 Output:
+<img width="753" height="501" alt="image" src="https://github.com/user-attachments/assets/776984d1-ff97-4806-8dd7-6a61505cdc2a" />
 
-//paste your output here
 
 
 
@@ -34,11 +53,36 @@ Algorithm:
  
 Program:
 
-//type your code here
+    struct Node{
+        char data; 
+        struct Node *next;
+    }*head;
+    
+    void insert(char data)
+    {
+        struct Node *n=(struct Node*)malloc(sizeof(struct Node));
+        struct Node *temp;
+        if(head==NULL)
+        {
+            head = n;
+            head->data = data;
+            n->next=NULL;
+            return;
+        }
+        temp=head;
+        while(temp->next!=NULL)
+        {
+            temp=temp->next;
+        }
+        n->data = data;
+        n->next = NULL;
+        temp->next= n;    
+        
+    }
 
 Output:
 
-//paste your output here
+<img width="523" height="520" alt="image" src="https://github.com/user-attachments/assets/f7b835ac-d4ae-4420-98d6-4a0c6c8e5070" />
 
  
 Result:
@@ -58,11 +102,28 @@ Algorithm:
  
 Program:
 
-//type your code here
+    struct Node
+    {
+        struct Node *prev;
+        struct Node *next;
+        char data;
+    }*head;
+    
+    void display()
+    {
+        struct Node *ptr;
+        //printf("\n printing values...\n");
+        ptr = head;
+        while(ptr != NULL)
+        {
+            printf("%c\n",ptr->data);
+            ptr=ptr->next;
+        }
+    }
 
 Output:
 
-//paste your output here
+<img width="559" height="588" alt="image" src="https://github.com/user-attachments/assets/d1c38d6b-5423-4b02-bc3a-5c2c886a68fd" />
 
 
 Result:
@@ -83,11 +144,54 @@ Algorithm:
  
 Program:
 
-//type your code here
+    struct Node
+    {
+        struct Node *prev;
+        struct Node *next;
+        char data;
+    }*head;
+    
+    void insert(char data)
+    {
+       struct Node *ptr,*temp;
+     //  int item;
+       ptr = (struct Node *) malloc(sizeof(struct Node));
+       if(ptr == NULL)
+       {
+           printf("OVERFLOW\n");
+       }
+       else
+       {
+           //printf("\nEnter value");
+           //scanf("%d",&item);
+            ptr->data=data;
+           if(head == NULL)
+           {
+               ptr->next = NULL;
+               ptr->prev = NULL;
+               head = ptr;
+           }
+           else
+           {
+              temp = head;
+              while(temp->next!=NULL)
+              {
+                  temp = temp->next;
+              }
+              
+              temp->next = ptr;
+              ptr ->prev=temp;
+              ptr->next = NULL;
+              }
+    
+           }
+         //printf("\nnode inserted\n");
+        }
+
 
 Output:
 
-//paste your output here
+<img width="501" height="560" alt="image" src="https://github.com/user-attachments/assets/083560ed-8ee3-47d1-84bb-2e75700a392c" />
 
 
 Result:
@@ -125,11 +229,40 @@ o	If the element is not found in any node, print a message indicating the elemen
 
 Program:
 
-//type your code here
+    struct Node
+    {
+        struct Node *prev;
+        struct Node *next;
+        float data;
+    }*head;
+    
+    void delete()
+    {
+        struct Node *ptr;
+        if(head == NULL)
+        {
+            printf("UNDERFLOW\n");
+        }
+        else if(head->next == NULL)
+        {
+            head = NULL;
+            free(head);
+            printf("Node deleted\n");
+        }
+        else
+        {
+            ptr = head;
+            head = head -> next;
+            head -> prev = NULL;
+            free(ptr);
+            printf("Node deleted\n");
+        }
+    
+    }
 
 Output:
 
-//paste your output here
+<img width="801" height="600" alt="image" src="https://github.com/user-attachments/assets/c8f35139-7e4a-4466-8b4c-6b539351b0fd" />
 
 
 
