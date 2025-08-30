@@ -16,7 +16,6 @@ Program:
 int stack[100],top,i;
 void display()
 {
-    
     for(int i=top;i>=0;i--)
     {
         printf("%d->",stack[i]);
