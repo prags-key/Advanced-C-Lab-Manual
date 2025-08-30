@@ -170,20 +170,21 @@ Algorithm:
 
 
 Program:
-     #include<stdio.h>
-     #include<stdlib.h>
-     int main()
-     {
-         int n,sum=0;
-         scanf("%d",&n);
-         int *a=(int *)malloc(n*sizeof(int));
-         for(int i=0;i<n;i++)
-         {
-             scanf("%d",&a[i]);
-             sum=sum+a[i];
-         }
-         printf("%d",sum);
-     }
+    #include<stdio.h>
+    #include<stdlib.h>
+    int main()
+    {
+        int n,sum=0;
+        scanf("%d",&n);
+        int *a=(int *)malloc(n*sizeof(int));
+        for(int i=0;i<n;i++)
+        {
+            scanf("%d",&a[i]);
+            sum=sum+a[i];
+        }
+        printf("%d",sum);
+    }
+
 Output:
 <img width="788" height="170" alt="image" src="https://github.com/user-attachments/assets/4f1c33f8-dde2-498e-983d-55899853cc90" />
 
@@ -216,33 +217,33 @@ o	If a character is not a space, it may belong to a word. If it's the first non-
 
 
 Program:
-    #include <stdio.h>
-    #include <string.h>
-    #include <ctype.h>
-    
-    int main() {
-        char sentence[1000];
-        int i, word_count = 0;
-        int in_word = 0;
-    
-        printf("Enter a sentence: ");
-        fgets(sentence, sizeof(sentence), stdin);
-    
-        for (i = 0; sentence[i] != '\0'; i++) {
-            if (!isspace(sentence[i])) {
-                if (!in_word) {
-                    word_count++;
-                    in_word = 1;
+        #include <stdio.h>
+        #include <string.h>
+        #include <ctype.h>
+        
+        int main() {
+            char sentence[1000];
+            int i, word_count = 0;
+            int in_word = 0;
+        
+            printf("Enter a sentence: ");
+            fgets(sentence, sizeof(sentence), stdin);
+        
+            for (i = 0; sentence[i] != '\0'; i++) {
+                if (!isspace(sentence[i])) {
+                    if (!in_word) {
+                        word_count++;
+                        in_word = 1;
+                    }
+                } else {
+                    in_word = 0;
                 }
-            } else {
-                in_word = 0;
             }
+        
+            printf("Number of words: %d\n", word_count);
+        
+            return 0;
         }
-    
-        printf("Number of words: %d\n", word_count);
-    
-        return 0;
-    }
 
 Output:
 <img width="703" height="367" alt="image" src="https://github.com/user-attachments/assets/32721f7b-7d65-445f-b1fc-558f46b2b665" />
