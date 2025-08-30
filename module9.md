@@ -13,14 +13,14 @@ Algorithm:
  
 Program:
 
-int stack[100],top,i;
-void display()
-{
-    for(int i=top;i>=0;i--)
+    int stack[100],top,i;
+    void display()
     {
-        printf("%d->",stack[i]);
+        for(int i=top;i>=0;i--)
+        {
+            printf("%d->",stack[i]);
+        }
     }
-}
 
 
 Output:
@@ -44,20 +44,20 @@ Algorithm:
  
 Program:
 
-int size=3,top=-1;
-float stack[100];
-void push (float data)
-{
-    if(top==size-1)
+    int size=3,top=-1;
+    float stack[100];
+    void push (float data)
     {
-        printf("stack overflow");
+        if(top==size-1)
+        {
+            printf("stack overflow");
+        }
+        else
+        {
+            top++;
+            stack[top]=data;
+        }
     }
-    else
-    {
-        top++;
-        stack[top]=data;
-    }
-}
 Output:
 
 <img width="551" height="643" alt="image" src="https://github.com/user-attachments/assets/d0aa4a4a-09d8-4f83-b09e-25ed7719e4d5" />
@@ -82,22 +82,22 @@ Algorithm:
  
 Program:
 
-int queue[50], rear, front;
-void display()
-{
-    if(front==-1 || front> rear)
+    int queue[50], rear, front;
+    void display()
     {
-        printf("No elements to display");
-    }
-    else
-    {
-        for(int i=front;i<=rear;i++)
+        if(front==-1 || front> rear)
         {
-            printf("%d\n",queue[i]);
+            printf("No elements to display");
         }
+        else
+        {
+            for(int i=front;i<=rear;i++)
+            {
+                printf("%d\n",queue[i]);
+            }
+        }
+        
     }
-    
-}
 Output:
 
 <img width="781" height="561" alt="image" src="https://github.com/user-attachments/assets/89aedd02-c6fd-4121-afc5-daf5f463766c" />
@@ -120,22 +120,22 @@ Algorithm:
 
 Program:
 
-int rear,front,size=10;
-char queue[50];
-void enqueue(char data)
-{
-    if(rear<size)
+    int rear,front,size=10;
+    char queue[50];
+    void enqueue(char data)
     {
-        if(front==-1)
+        if(rear<size)
         {
-        front=0;
+            if(front==-1)
+            {
+            front=0;
+            }
+            rear++;
+        queue[rear]=data;
+            
         }
-        rear++;
-    queue[rear]=data;
         
     }
-    
-}
 Output:
 
 <img width="759" height="452" alt="image" src="https://github.com/user-attachments/assets/e59ac9c3-5a89-489d-92bb-76c985473cda" />
@@ -169,19 +169,19 @@ o	After deletion, check if the front pointer has passed the rear pointer (front 
 
 Program:
 
-int front, rear;
-void dequeue()
-{
-    if(front==-1||front>rear)
+    int front, rear;
+    void dequeue()
     {
-        printf("Queue Underflow.\n");
-        return;
+        if(front==-1||front>rear)
+        {
+            printf("Queue Underflow.\n");
+            return;
+        }
+        else
+        {
+            front=front+1;
+        }
     }
-    else
-    {
-        front=front+1;
-    }
-}
 Output:
 
 <img width="806" height="650" alt="image" src="https://github.com/user-attachments/assets/1d7fb2bc-1912-473a-8dd6-01c99887aad5" />
