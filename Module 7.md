@@ -21,7 +21,7 @@ Program:
 
 Output:
 
-//paste your output here
+<img width="1920" height="1200" alt="Screenshot 2025-08-30 115027" src="https://github.com/user-attachments/assets/d096af81-26b7-4f81-aa92-6481ce712414" />
 
 
 Result:
