@@ -21,6 +21,8 @@ void display()
         printf("%d->",stack[i]);
     }
 }
+
+
 Output:
 
 <img width="707" height="663" alt="image" src="https://github.com/user-attachments/assets/1a42d6bb-ff92-4da2-aab2-c6bdb49bcf84" />
