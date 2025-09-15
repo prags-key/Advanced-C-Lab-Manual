@@ -3,6 +3,8 @@
 EXP NO:21 C PROGRAM TO CREATE A FUNCTION TO FIND THE GREATEST NUMBER
 Aim:
 To write a C program to create a function to find the greatest number
+PRAGATHI KUMAR
+212224230200
 
 Algorithm:
 1.	Include the necessary header #include <stdio.h>.
